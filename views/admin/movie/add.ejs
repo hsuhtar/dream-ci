@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <% include ../../partialAdmin/head %>
+  </head>
+  <body>
+    <% include ../../partialAdmin/theme-switcher %>
+    <% include ../../partialAdmin/header %>
+<div class="container-fluid">
+  <div class="row">
+    <% include ../../partialAdmin/sidebar %>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Movies Add</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-1 col-sm-12"></div>
+          <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/admin/movieAdd" method="post" enctype="multipart/form-data">
+                        <div class="mb-3 mt-3">
+                          <label for="title" class="form-label">Title:</label>
+                          <input type="text" class="form-control" id="title" placeholder="Enter Movie Title" name="title">
+                        </div>
+                        <div class="mb-3">
+                          <label for="cinemaId" class="form-label">Cinema:</label>
+                          <select class="form-select" name="cinemaId" id="cinemaId" aria-label="Default select example">
+                            <% for(var i = 0; i < cinemas.length; i++) { %>
+                              <option value="<%= cinemas[i]._id %>"><%= cinemas[i].name %></option>
+                            <% } %>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="poster" class="form-label">Poster:</label>
+                          <input type="file" class="form-control" id="poster" placeholder="Insert poster"  accept='image/*' name="poster">
+                        </div>
+                        <div class="mb-3">
+                          <label for="category" class="form-label">Category:</label>
+                          <select class="form-select" name="category" multiple aria-label="multiple select example">
+                            <option value="action">Action</option>
+                            <option value="horror">Horror</option>
+                            <option value="drama">Drama</option>
+                            <option value="romance">Romance</option>
+                            <option value="scienceFiction">Science fiction</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="thriller">Thriller</option>
+                            <option value="western">Westren</option>
+                            <option value="advinture">Adventure</option>
+                            <option value="animation">Animation</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="crime">Crime</option>
+                            <option value="documentary">Documentary</option>
+                            <option value="musical">Musical</option>
+                            <option value="war">War</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="historical">Historical</option>
+                            <option value="sports">Sports</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="cast" class="form-label">Cast:</label>
+                          <input type="text" class="form-control" id="cast" placeholder="Enter cast" name="cast">
+                        </div>
+                        <div class="mb-3">
+                          <label for="director" class="form-label">Director:</label>
+                          <input type="text" class="form-control" id="director" placeholder="Enter director" name="director">
+                        </div>
+                        <div class="mb-3">
+                          <label for="startDate" class="form-label">Start Date:</label>
+                          <input type="date" class="form-control" id="startDate" placeholder="Enter start date" name="startDate">
+                        </div>
+                        <div class="mb-3">
+                          <label for="endDate" class="form-label">End Date:</label>
+                          <input type="date" class="form-control" id="endDate" placeholder="Enter end date" name="endDate">
+                        </div>
+                        <div class="mb-3">
+                          <label for="releaseDate" class="form-label">Release Date:</label>
+                          <input type="date" class="form-control" id="releaseDate" placeholder="Enter release date" name="releaseDate">
+                        </div>
+                        <div class="mb-3">
+                          <label for="duration" class="form-label">Duration:</label>
+                          <input type="text" class="form-control" id="duration" placeholder="Enter duration" name="duration">
+                        </div>
+                        <div class="mb-3">
+                          <label for="trailer" class="form-label">Trailer:</label>
+                          <input type="text" class="form-control" id="trailer-link" placeholder="Enter trailer" name="trailer">
+                        </div>
+                        <div class="mb-3">
+                          <div class="form-floating">
+                          <textarea class="form-control" id="syn" name="syn" placeholder="Synopsis Here" style="height: 100px;"></textarea>
+                          <label for="syn">Synopsis:</label>
+                        </div>
+                      </div>
+                        <div class="d-grid">
+                        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                        </div>
+                      </form>
+            </div>
+          </div>
+        </div>
+      <div class="col-lg-2 col-md-1 col-sm-12"></div>
+    </div>
+      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+      
+    </main>
+  </div>
+</div>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
