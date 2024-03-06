@@ -129,8 +129,8 @@ router.get("/cinemas", async function(req, res){
   res.render("cinemas", {cinemas: cinemas});
 });
 
-router.get("/aboutus", async function(req,res){
+router.get("/aboutus", function(req,res){
   res.render("/aboutus");
-})
+});
 
 module.exports = router;
